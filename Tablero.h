@@ -18,6 +18,8 @@ public:
 	Tablero();
 	// ubica una ficha en una posicion
 	void setFichaIn(int x, int y, char c);
+	// devuelve la ficha en una posicion
+	char getFichaIn(int x, int y);
 	// muestra el tablero
 	void mostrar();
 	// retorna si hay una ficha en esa posicion

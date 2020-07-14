@@ -22,7 +22,9 @@ void Tablero::setFichaIn(int x, int y, char c){
 	if (!hayFicha(x, y)) {
 		mapa[x][y] = c;
 	} else {
-		cout << endl << "Esa posicion ya esta ocupada" << endl << endl;
+		cout << endl << "----------------------------" << endl;
+		cout << "Esa posicion ya esta ocupada" << endl;
+		cout << "----------------------------" << endl;
 	}
 	
 }
@@ -34,7 +36,12 @@ void Tablero::mostrar() {
 		for (int j = 0; j < 3; j++) {
 			
 			if (hayFicha(i, j)) {
-				textcolor(RED);
+				if (getFichaIn(i,j) == 'X') {
+					textcolor(RED);
+				} else {
+					textcolor(BLUE);
+				}
+				
 			} else {
 				textcolor(GREEN);
 			}
@@ -46,6 +53,10 @@ void Tablero::mostrar() {
 		cout << endl << "=================" << endl;
 	}
 	cout << endl;
+}
+
+char Tablero::getFichaIn(int x, int y){
+	return mapa[x][y].getFigura();
 }
 
 bool Tablero::hayFicha(int x, int y) {

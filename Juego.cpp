@@ -26,7 +26,7 @@ void Juego::imprimirTablero() {
 void Juego::imprimirSeparador() {
 	textcolor(RED);
 	cout << endl << "**************************" << endl;
-	cout << "**************************" << endl;
+	cout << "**************************" << endl << endl;
 	textcolor(WHITE);
 }
 
@@ -69,7 +69,6 @@ int Juego::getKey(){
 	}
 	
 	insertKey(casillero, caracter);
-	turno1 = !turno1;
 }
 
 
@@ -115,6 +114,10 @@ void Juego::insertKey(int k, char c){
 		break;
 	}
 	
+	if (!miTablero.hayFicha(posicion[0], posicion[1])) {
+		turno1 = !turno1;
+	}
+	
 	miTablero.setFichaIn(posicion[0], posicion[1], c);
 }
 
@@ -150,11 +153,13 @@ void Juego::imprimirTerminar(bool turno1) {
 }
 
 void Juego::imprimirCabecera() {
-	textcolor(RED);
+	textcolor(WHITE);
 	cout << "--------------------------------------------" << endl;
 	cout << "|   Bienvenido al TATETI de Luciano Simo   |" << endl;
 	cout << "--------------------------------------------" << endl;
+	textcolor(RED);
 	cout << "Jugador 1 --> X                             " << endl;
+	textcolor(BLUE);
 	cout << "Jugador 2 --> 0                             " << endl;
 	cout << "                                            " << endl;
 	textcolor(WHITE);
@@ -179,16 +184,23 @@ void Juego::play() {
 	} while(!miTablero.isComplete() && !checkTateti());
 	
 	imprimirPantalla(true);
+	textcolor(GREEN);
 	
 	if (tateti) {
+		cout << "**************************" << endl;
 		//Si el proximo turno que tocaba era el jugador 1 quiere decir que gano el 2 y viceversa
 		if (turno1) {
-			cout << "Gano jugador 2";
+			cout << "EL GANADOR ES EL JUGADOR 2" << endl;
 		} else {
-			cout << "Gano jugador 1";
+			cout << "EL GANADOR ES EL JUGADOR 1" << endl;
 		}
+		
+		cout << "**************************" << endl;
 	} else {
-		cout << "termino en empate";
+		cout << "**************************" << endl;
+		cout << "EL RESULTADO ES UN EMPATE!" << endl;
+		cout << "**************************" << endl;
 	}
 	
+	textcolor(WHITE);
 }

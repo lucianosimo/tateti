@@ -27,11 +27,11 @@ cursor=0:0
 open=true
 [source]
 path=Juego.cpp
-cursor=0:0
+cursor=204:16
 open=true
 [source]
 path=Tablero.cpp
-cursor=0:0
+cursor=38:30
 open=true
 [header]
 path=Ficha.h
@@ -39,11 +39,11 @@ cursor=0:0
 open=true
 [header]
 path=Juego.h
-cursor=0:0
+cursor=16:39
 open=true
 [header]
 path=Tablero.h
-cursor=0:0
+cursor=21:5
 open=true
 [config]
 name=Debug_Win32
